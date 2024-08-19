@@ -49,6 +49,10 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('tables');
 	})->name('tables');
 
+	Route::get('pacientes', function () {
+		return view('pacientes');
+	})->name('pacientes');
+
     Route::get('virtual-reality', function () {
 		return view('virtual-reality');
 	})->name('virtual-reality');
