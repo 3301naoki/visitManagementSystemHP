@@ -30,46 +30,36 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @forelse ($patients as $patient)
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center px-2 py-1">
-                          <div>
-                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="placeholder">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">{{ $patient->name }}</h6>
-                          </div>
+                  <!-- Exemplo de dados estáticos -->
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center px-2 py-1">
+                        <div>
+                          <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="placeholder">
                         </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">{{ $patient->cpf }}</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        @if($patient->entry_date instanceof \Carbon\Carbon)
-                          <span class="text-secondary text-xs font-weight-bold">{{ $patient->entry_date->format('d/m/Y') }}</span>
-                        @else
-                          <span class="text-secondary text-xs font-weight-bold">{{ $patient->entry_date }}</span>
-                        @endif
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">{{ $patient->bed_number }}</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">{{ $patient->id_number }}</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <button class="btn btn-custom-small btn-warning">Editar</button>
-                      </td>
-                      <td class="align-middle text-center">
-                        <button class="btn btn-custom-small btn-danger">Excluir</button>
-                      </td>
-                    </tr>
-                  @empty
-                    <tr>
-                      <td colspan="7" class="text-center">Nenhum dado disponível</td>
-                    </tr>
-                  @endforelse
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="mb-0 text-sm">Nome do Paciente</h6>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">000.000.000-00</p>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <span class="text-secondary text-xs font-weight-bold">01/01/2024</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">101</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">123456</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <button class="btn btn-custom-small btn-danger">Excluir</button>
+                    </td>
+                  </tr>
+                  <!-- Fim dos dados estáticos -->
+                  <!-- Adicione mais linhas conforme necessário -->
                 </tbody>
               </table>
             </div>
@@ -89,24 +79,23 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="{{ route('pacientes.store') }}" method="POST">
-          @csrf
+        <form>
           <div class="modal-body">
             <div class="form-group">
               <label for="name">Nome</label>
-              <input type="text" class="form-control" id="name" name="name" required>
+              <input type="text" class="form-control" id="name" required>
             </div>
             <div class="form-group">
               <label for="cpf">CPF</label>
-              <input type="text" class="form-control" id="cpf" name="cpf" required>
+              <input type="text" class="form-control" id="cpf" required>
             </div>
             <div class="form-group">
               <label for="entry_date">Data de Entrada</label>
-              <input type="date" class="form-control" id="entry_date" name="entry_date" required>
+              <input type="date" class="form-control" id="entry_date" required>
             </div>
             <div class="form-group">
               <label for="bed_number">Nº do Leito</label>
-              <input type="number" class="form-control" id="bed_number" name="bed_number" required>
+              <input type="number" class="form-control" id="bed_number" required>
             </div>
             <!-- Remover o campo id_number -->
           </div>

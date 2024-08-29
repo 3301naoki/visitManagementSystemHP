@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoUserController;
@@ -91,6 +90,3 @@ Route::group(['middleware' => 'guest'], function () {
 Route::get('/login', function () {
     return view('session/login-session');
 })->name('login');
-
-Route::get('/pacientes', [PatientController::class, 'index'])->name('pacientes.index');
-Route::post('/pacientes', [PatientController::class, 'store'])->name('pacientes.store');

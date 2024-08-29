@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-12">
         <div class="d-flex justify-content-start mb-3">
-          <button type="button" class="btn btn-primary">Adicionar</button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPatientModal">Adicionar</button>
         </div>
 
         <div class="card mb-4">
@@ -34,41 +34,6 @@
                     <td colspan="6" class="text-center">Nenhum dado disponível</td>
                   </tr>
                   <!-- Placeholder row for "Edit" action -->
-                  <tr>
-                    <td>
-                      <div class="d-flex align-items-center px-2 py-1">
-                        <div>
-                          <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="placeholder">
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="mb-0 text-sm">Nome do Paciente</h6>
-                          <p class="text-xs text-secondary mb-0">email@exemplo.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <p class="text-xs font-weight-bold mb-0">000.000.000-00</p>
-                    </td>
-                    <td class="align-middle text-center text-sm">
-                      <span class="text-secondary text-xs font-weight-bold">01/01/2024</span>
-                    </td>
-                    <td class="align-middle text-center">
-                      <span class="text-secondary text-xs font-weight-bold">123</span>
-                    </td>
-                    <td class="align-middle text-center">
-                      <span class="text-secondary text-xs font-weight-bold">001</span>
-                    </td>
-                    <td class="align-middle text-center">
-                      <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                        <button class="btn btn-custom-small btn-warning">Editar</button>
-                      </a>
-                    </td>
-                    <td class="align-middle text-center">
-                      <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete user">
-                        <button class="btn btn-custom-small btn-danger">Excluir</button>
-                      </a>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
@@ -77,6 +42,46 @@
       </div>
     </div>
   </div>
+</main>
+
+<!-- Modal para Adicionar Paciente -->
+<div class="modal fade" id="addPatientModal" tabindex="-1" role="dialog" aria-labelledby="addPatientModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addPatientModalLabel">Adicionar Paciente</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" id="cpf" required>
+          </div>
+          <div class="form-group">
+            <label for="entry_date">Data de Entrada</label>
+            <input type="date" class="form-control" id="entry_date" required>
+          </div>
+          <div class="form-group">
+            <label for="bed_number">Nº do Leito</label>
+            <input type="number" class="form-control" id="bed_number" required>
+          </div>
+          <!-- Remover o campo id_number -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary">Adicionar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 </main>
 
 @endsection
