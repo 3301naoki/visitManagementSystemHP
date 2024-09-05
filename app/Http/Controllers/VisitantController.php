@@ -30,7 +30,7 @@ class VisitantController extends Controller
     public function store(Request $request)
     {
         $paciente = Http::get($_ENV["API_URL"] . "/paciente/pacienteByNome/" . $request->input("paciente"))->json();
-        
+
         if (!$paciente['id']) {
             return redirect()->back()->with("error", "Paciente não encontrado");
         }
@@ -98,6 +98,6 @@ class VisitantController extends Controller
             return redirect()->back()->with("error", "Ocorreu um erro inesperado.");
         }
 
-        return redirect()->back()->with("success", "Visitante deletado com sucesso!");
+        return redirect()->back()->with("ok", "Visitante deletado com sucesso!");
     }
 }

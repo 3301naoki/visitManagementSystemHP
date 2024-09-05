@@ -57,7 +57,7 @@ class PacientesController extends Controller
             return redirect()->back()->with("error", "Ocorreu um erro inesperado.");
         }
 
-        return redirect()->back()->with("success", "Paciente criado com sucesso!");
+        return redirect()->back()->with("ok", "Paciente criado com sucesso!");
     }
 
     /**
@@ -101,7 +101,7 @@ class PacientesController extends Controller
             return redirect()->back()->with("error", "Ocorreu um erro inesperado.");
         }
 
-        return redirect("pacientes")->with("success", "Leito do paciente atualizado com sucesso!");
+        return redirect("pacientes")->with("ok", "Leito do paciente atualizado com sucesso!");
     }
 
     /**
@@ -119,6 +119,6 @@ class PacientesController extends Controller
             return redirect()->back()->with("error", "Ocorreu um erro inesperado.");
         }
 
-        return redirect()->back()->with("success", "Paciente deletado com sucesso!");
+        return redirect()->back()->with("ok", "Paciente deletado com sucesso!");
     }
 }

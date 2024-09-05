@@ -2,6 +2,51 @@
 
 @section('content')
     <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
+        <style>
+            .ok {
+                color: #000;
+                display: grid;
+                place-items: center;
+            }
+
+            .ok p {
+                background: #9d29;
+                min-width: 180px;
+                width: fit-content;
+                font-size: 14px;
+                border-radius: 6px;
+                padding: 2px 5px;
+                border-radius: 6px;
+                text-align: center;
+            }
+
+            .error {
+                color: #000b;
+                display: grid;
+                place-items: center;
+            }
+
+            .error p {
+                background: #ff000089;
+                min-width: 180px;
+                width: fit-content;
+                font-size: 16px;
+                border-radius: 6px;
+                padding: 2px 5px;
+                border-radius: 6px;
+                text-align: center;
+            }
+        </style>
+        @if (session('ok'))
+            <span class="ok">
+                <p class="text-center font-weight-bolder">{{ session('ok') }}</p>
+            </span>
+        @endif
+        @if (session('error'))
+            <span class="error">
+                <p class="text-center font-weight-bolder">{{ session('error') }}</p>
+            </span>
+        @endif
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-12">

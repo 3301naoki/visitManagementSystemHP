@@ -2,12 +2,57 @@
 
 @section('content')
     <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg">
+        <style>
+            .ok {
+                color: #000;
+                display: grid;
+                place-items: center;
+            }
+
+            .ok p {
+                background: #9d29;
+                min-width: 180px;
+                width: fit-content;
+                font-size: 14px;
+                border-radius: 6px;
+                padding: 2px 5px;
+                border-radius: 6px;
+                text-align: center;
+            }
+
+            .error {
+                color: #000b;
+                display: grid;
+                place-items: center;
+            }
+
+            .error p {
+                background: #ff000089;
+                min-width: 180px;
+                width: fit-content;
+                font-size: 16px;
+                border-radius: 6px;
+                padding: 2px 5px;
+                border-radius: 6px;
+                text-align: center;
+            }
+        </style>
+        @if (session('ok'))
+            <span class="ok">
+                <p class="text-center font-weight-bolder">{{ session('ok') }}</p>
+            </span>
+        @endif
+        @if (session('error'))
+            <span class="error">
+                <p class="text-center font-weight-bolder">{{ session('error') }}</p>
+            </span>
+        @endif
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-start mb-3">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPatientModal"
-                            style="background-color: #2180FE">Adicionar</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#addPatientModal" style="background-color: #2180FE">Adicionar</button>
                     </div>
 
                     <div class="card mb-4">
@@ -78,16 +123,16 @@
                                                                 color: #ddd;
                                                             }
 
-                                                            .bg-action-button-custom3 {
-                                                                background-color: rgb(149, 34, 221);
+                                                            .bg-action-button-custom4 {
+                                                                background-color: #2180FE;
                                                                 color: #fff;
                                                                 transition: all .4s;
                                                                 border: none;
                                                                 maring-left: 10px;
                                                             }
 
-                                                            .bg-action-button-custom3:hover {
-                                                                background-color: rgb(92, 24, 124);
+                                                            .bg-action-button-custom4:hover {
+                                                                background-color: #2180FE;
                                                                 color: #ddd;
                                                             }
 
@@ -103,7 +148,7 @@
                                                             }
                                                         </style>
                                                         <button
-                                                            class="bg-action-button-custom3 font-weight-bold text-xs badge badge-sm"
+                                                            class="bg-action-button-custom4 font-weight-bold text-xs badge badge-sm"
                                                             data-original-title="Ver Paciente" data-bs-toggle="modal"
                                                             data-bs-target="#viewPatientModal">
                                                             Ver paciente
@@ -177,8 +222,8 @@
         </div>
     </div>
     @if ($pacientes->first())
-        <div class="modal fade" id="viewPatientModal" tabindex="-1" role="dialog" aria-labelledby="viewPatientModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="viewPatientModal" tabindex="-1" role="dialog"
+            aria-labelledby="viewPatientModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document" style="padding: 0 10px; min-width: fit-content;">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -296,7 +341,6 @@
     </div>
     </main>
 @endsection
-
 @push('styles')
     <style>
         .btn-custom-small {
@@ -314,5 +358,5 @@
         .align-items-center {
             align-items: center;
         }
-    </style>
-@endpush
+
+    @endpush
