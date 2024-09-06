@@ -56,7 +56,7 @@ class VisitantController extends Controller
             return redirect()->back()->with("error", "Ocorreu um erro inesperado.");
         }
 
-        return redirect()->back()->with("sucess", "Visitante criado com secesso!");
+        return redirect()->back()->with("ok", "Visitante criado com secesso!");
     }
 
     /**

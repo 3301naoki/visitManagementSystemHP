@@ -65,7 +65,23 @@ class PacientesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $visitantes = Http::get($_ENV["API_URL"] . "/visitante/allVisitantes")->json();
+        $pacientes = collect(Http::get($_ENV["API_URL"] . "/paciente/allPacientes")->json());
+
+        $pacientes = $pacientes->filter(function ($paciente) use ($id) {
+            return $paciente['id'] == $id;
+        })->map(function ($paciente) {
+            $paciente["dataEntrada"] = Carbon::parse($paciente["dataEntrada"])->format("d/m/y");
+            return $paciente;
+        });
+
+        $visitantes = collect($visitantes)->filter(
+            function ($visitante) use ($pacientes) {
+                return $visitante['paciente'] == $pacientes->first()['nome'];
+            }
+        );
+
+        return view("paciente", ["visitantes" => $visitantes, "paciente" => $pacientes]);
     }
 
     public function edit(string $id)

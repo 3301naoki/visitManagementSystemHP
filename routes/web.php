@@ -54,6 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('tables');
 
 	Route::get('pacientes', [PacientesController::class, 'index'])->name('pacientes');
+	Route::get('paciente/{id}', [PacientesController::class, 'show'])->name('paciente');
 	Route::post('pacientes', [PacientesController::class, "store"])->name('pacientes/criar');
 	Route::get('atualizar-paciente/{id}', [PacientesController::class, "edit"])->name('update-paciente');
 	Route::put('paciente/{id}/atualizar', [PacientesController::class, "update"])->name('paciente/atualizar');
